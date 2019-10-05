@@ -1,0 +1,24 @@
+name: workflow without an entrypoint in the action
+on: push
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: ./.github/actions/without-entrypoint-action
+        name: without arguments
+        with:
+          entrypoint: script.sh
+
+      - uses: ./.github/actions/without-entrypoint-action
+        name: with one argument
+        with:
+          entrypoint: script.sh
+          args: -x foo
+
+      - uses: ./.github/actions/without-entrypoint-action
+        name: with two arguments
+        with:
+          entrypoint: script.sh
+          args: -x foo -y bar

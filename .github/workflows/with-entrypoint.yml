@@ -1,0 +1,20 @@
+name: workflow with an entrypoint in the action
+on: push
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: ./.github/actions/with-entrypoint-action
+        name: without arguments
+
+      - uses: ./.github/actions/with-entrypoint-action
+        name: with one argument
+        with:
+          args: -x foo
+
+      - uses: ./.github/actions/with-entrypoint-action
+        name: with two arguments
+        with:
+          args: -x foo -y bar

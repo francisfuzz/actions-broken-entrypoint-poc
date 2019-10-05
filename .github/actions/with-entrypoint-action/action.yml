@@ -1,0 +1,9 @@
+name: with entrypoint in action
+description: none
+branding:
+  icon: package
+  color: red
+runs:
+  using: docker
+  image: ../../../Dockerfile
+  entrypoint: release.sh
